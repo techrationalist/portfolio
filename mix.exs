@@ -55,7 +55,8 @@ defmodule Portfolio.MixProject do
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
-      {:bandit, "~> 1.5"}
+      {:bandit, "~> 1.5"},
+      {:primer_live, "~> 0.7.0"}
     ]
   end
 
@@ -71,6 +72,7 @@ defmodule Portfolio.MixProject do
       "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
       "assets.build": ["tailwind portfolio", "esbuild portfolio"],
       "assets.deploy": [
+        "cmd npm --prefix assets install",
         "tailwind portfolio --minify",
         "esbuild portfolio --minify",
         "phx.digest"

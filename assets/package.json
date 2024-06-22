@@ -1,0 +1,5 @@
+{
+    "dependencies": {
+        "primer-live": "file:../deps/primer_live"
+    }
+}
