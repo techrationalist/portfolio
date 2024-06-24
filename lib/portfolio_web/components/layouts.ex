@@ -9,6 +9,7 @@ defmodule PortfolioWeb.Layouts do
   `use PortfolioWeb, :live_view`.
   """
   use PortfolioWeb, :html
+  use PrimerLive
 
   embed_templates "layouts/*"
 end

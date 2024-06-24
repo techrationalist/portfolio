@@ -8,6 +8,7 @@ defmodule PortfolioWeb.Router do
     plug :put_root_layout, html: {PortfolioWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug PortfolioWeb.Plugs.PageTitle, "Tech Rationalist"
   end
 
   pipeline :api do
