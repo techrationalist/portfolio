@@ -16,7 +16,8 @@ defmodule Portfolio.Application do
       # Start a worker by calling: Portfolio.Worker.start_link(arg)
       # {Portfolio.Worker, arg},
       # Start to serve requests, typically the last entry
-      PortfolioWeb.Endpoint
+      PortfolioWeb.Endpoint,
+      Portfolio.Repo,
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

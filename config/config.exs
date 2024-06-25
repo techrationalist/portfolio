@@ -7,6 +7,12 @@
 # General application configuration
 import Config
 
+config :portfolio, Portfolio.Repo,
+  database: "portfolio_repo",
+  username: "postgres",
+  password: "postgres",
+  hostname: "localhost"
+
 config :portfolio,
   generators: [timestamp_type: :utc_datetime]
 
@@ -29,6 +35,8 @@ config :portfolio, PortfolioWeb.Endpoint,
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
 config :portfolio, Portfolio.Mailer, adapter: Swoosh.Adapters.Local
+
+config :portfolio, ecto_repos: [Portfolio.Repo]
 
 # Configure esbuild (the version is required)
 config :esbuild,
