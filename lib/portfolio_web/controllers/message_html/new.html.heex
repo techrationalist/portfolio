@@ -1,0 +1,35 @@
+<div class="max-w-2xl mx-auto">
+  <.header class="text-center">
+    Get in Touch
+    <:subtitle>
+      Whether you have a question about my projects, want to collaborate on a new venture, or just want to say hi, I'd love to hear from you! Use the form below or reach out through my social media channels.
+    </:subtitle>
+  </.header>
+
+  <.simple_form :let={f} for={@changeset} action={~p"/contact"} class="mt-10">
+    <.error :if={@changeset.action}>
+      Oops, something went wrong! Please check the errors below.
+    </.error>
+    <.input field={f[:name]} type="text" label="Name" required />
+    <.input field={f[:email]} type="email" label="Email" required />
+    <.input field={f[:subject]} type="text" label="Subject" required />
+    <.input field={f[:body]} type="textarea" label="Message" required />
+    <:actions>
+      <.button class="w-full">Send Message</.button>
+    </:actions>
+  </.simple_form>
+
+  <div class="mt-12 text-center">
+    <h3 class="text-lg font-semibold mb-4">Connect With Me</h3>
+    <div class="flex justify-center space-x-4">
+      <a href="https://linkedin.com/in/murali-krishna-regandla" class="text-blue-600 hover:underline">LinkedIn</a>
+      <a href="https://github.com/techrationalist" class="text-blue-600 hover:underline">GitHub</a>
+      <a href="https://x.com/TechRationalist" class="text-blue-600 hover:underline">Twitter</a>
+    </div>
+  </div>
+
+  <div class="mt-8 text-center text-sm text-gray-600">
+    <p>Or email me directly at <a href="mailto:contact@techrationlist.com" class="text-blue-600 hover:underline">contact@techrationlist.com</a></p>
+    <p class="mt-2">Office hours: Monday to Friday, 10 AM to 6 PM (IST)</p>
+  </div>
+</div>

@@ -20,6 +20,10 @@ defmodule PortfolioWeb.Router do
 
     get "/", PageController, :home
     get "/about-me", AboutMeController, :about_me
+
+    get "/contact", MessageController, :new
+    post "/contact", MessageController, :create
+    get "/contact/thank-you", MessageController, :thank_you
   end
 
   # Other scopes may use custom stacks.
