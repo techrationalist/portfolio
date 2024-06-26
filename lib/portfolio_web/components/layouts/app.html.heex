@@ -1,8 +1,8 @@
-<.header>
+<PL.header>
   <:item is_full_width />
   <:item :let={classes}>
     <.link navigate="/" class={[classes.link, "f4 d-flex flex-items-center"]}>
-      <.octicon name="person-fill-16" width="32" height="32" class="mr-2" />
+      <PL.octicon name="person-fill-16" width="32" height="32" class="mr-2" />
       <span>Tech Rationalist</span>
     </.link>
   </:item>
@@ -23,7 +23,7 @@
     <.link patch="/contact-me" class={classes.link}>Contact Me</.link>
   </:item>
   <:item is_full_width />
-</.header>
+</PL.header>
 <main class="px-4 py-20 sm:px-6 lg:px-8">
   <div class="mx-auto max-w-2xl">
     <.flash_group flash={@flash} />

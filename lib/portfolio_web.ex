@@ -69,6 +69,7 @@ defmodule PortfolioWeb do
   def html do
     quote do
       use Phoenix.Component
+      alias PrimerLive.Component, as: PL
 
       # Import convenience functions from controllers
       import Phoenix.Controller,
