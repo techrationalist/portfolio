@@ -24,6 +24,8 @@ defmodule PortfolioWeb.Router do
     get "/contact", MessageController, :new
     post "/contact", MessageController, :create
     get "/contact/thank-you", MessageController, :thank_you
+
+    get "/projects", ProjectsController, :projects
   end
 
   # Other scopes may use custom stacks.
