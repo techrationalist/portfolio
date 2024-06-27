@@ -77,6 +77,7 @@ defmodule PortfolioWeb do
 
       # Include general helpers for rendering HTML
       unquote(html_helpers())
+      import PortfolioWeb.Helpers
     end
   end
 

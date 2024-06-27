@@ -48,3 +48,8 @@ liveSocket.connect()
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket
 
+window.addEventListener("custom:open-email", (event) => {
+  const { user, domain } = event.detail;
+  window.location.href = `mailto:${user}@${domain}`;
+});
+

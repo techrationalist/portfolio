@@ -60,6 +60,7 @@ defmodule Portfolio.MixProject do
       {:phoenix_ecto, "~> 4.6"},
       {:ecto_sql, "~> 3.11"},
       {:postgrex, ">= 0.18.0"},
+      {:phoenix_html_helpers, "~> 1.0"},
     ]
   end
 

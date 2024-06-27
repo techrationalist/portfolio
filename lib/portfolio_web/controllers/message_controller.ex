@@ -11,7 +11,7 @@ defmodule PortfolioWeb.MessageController do
 
   def create(conn, %{"message" => message_params}) do
     case Contact.create_message(message_params) do
-      {:ok, message} ->
+      {:ok, _message} ->
         conn
         |> put_flash(:info, "Message sent successfully.")
         |> redirect(to: ~p"/contact/thank-you") # Redirect to the home page
