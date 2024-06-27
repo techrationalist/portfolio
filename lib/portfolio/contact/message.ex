@@ -1,4 +1,12 @@
 defmodule Portfolio.Contact.Message do
+  @moduledoc """
+  Defines the schema and changeset for contact messages.
+
+  This module represents a contact message in the portfolio application.
+  It includes fields for the sender's name, email, subject, and the message body.
+  The module also provides validation rules for these fields to ensure data integrity.
+  """
+
   use Ecto.Schema
   import Ecto.Changeset
 

@@ -36,27 +36,14 @@ defmodule PortfolioWeb.Helpers do
     email
     |> String.replace("@", " [at] ")
     |> String.replace(".", " [dot] ")
-    |> String.graphemes()  # Use String.graphemes() for proper Unicode handling
-    |> Enum.map(fn char ->
-      case char do
-        " " -> " "  # Keep spaces as they are for readability
-        _ ->
-          # For any character that is not a space:
-
-          # Convert the character to its Unicode code point
-          <<code::utf8>> = char
-
-          # Create an HTML entity using the Unicode code point
-          # This format (&#xxxx;) is called a numeric character reference
-          # It's a way to represent characters in HTML using their Unicode values
-          "&##{code};"  # e.g., 'A' becomes '&#65;'
-
-          # Using HTML entities makes it harder for bots to recognize the email
-          # while still allowing browsers to correctly display the character
-      end
+    |> String.graphemes()
+    |> Enum.map_join("", fn
+      " " -> " "
+      char ->
+        <<code::utf8>> = char
+        "&##{code};"
     end)
-    |> Enum.join("")
-    |> raw()  # Mark the result as safe HTML to prevent double-escaping
+    |> raw()
   end
 
   attr :user, :string, required: true

@@ -61,6 +61,7 @@ defmodule Portfolio.MixProject do
       {:ecto_sql, "~> 3.11"},
       {:postgrex, ">= 0.18.0"},
       {:phoenix_html_helpers, "~> 1.0"},
+      {:credo, "~> 1.7.7", only: [:dev, :test], runtime: false},
     ]
   end
 
