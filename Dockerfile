@@ -57,6 +57,9 @@ COPY lib lib
 
 COPY assets assets
 
+# without this no styles will be present in the production build
+RUN npm --prefix ./assets ci --progress=false --no-audit --loglevel=error
+
 # compile assets
 RUN mix assets.deploy
 
