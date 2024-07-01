@@ -20,7 +20,6 @@ import "phoenix_html";
 // Establish Phoenix Socket and LiveView configuration.
 import { Socket } from "phoenix";
 import { LiveSocket } from "phoenix_live_view";
-import { Prompt } from "primer-live";
 import topbar from "../vendor/topbar";
 
 

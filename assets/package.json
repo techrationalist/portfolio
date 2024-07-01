@@ -1,5 +1,8 @@
 {
     "dependencies": {
         "primer-live": "file:../deps/primer_live"
+    },
+    "devDependencies": {
+        "daisyui": "^4.12.10"
     }
 }
