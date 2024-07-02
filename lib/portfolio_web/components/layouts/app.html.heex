@@ -1,29 +1,36 @@
-<PL.header>
-  <:item is_full_width />
-  <:item :let={classes}>
-    <.link navigate="/" class={[classes.link, "f4 d-flex flex-items-center"]}>
-      <PL.octicon name="person-fill-16" width="32" height="32" class="mr-2" />
-      <span>Tech Rationalist</span>
-    </.link>
-  </:item>
-  <:item is_full_width />
-  <:item :let={classes}>
-    <.link navigate="/" class={classes.link}>Home</.link>
-  </:item>
-  <:item :let={classes}>
-    <.link href="/projects" class={classes.link}>Projects</.link>
-  </:item>
-  <:item :let={classes}>
-    <.link href="/skills" class={classes.link}>Skills</.link>
-  </:item>
-  <:item :let={classes}>
-    <.link href="/about-me" class={classes.link}>About Me</.link>
-  </:item>
-  <:item :let={classes}>
-    <.link patch="/contact" class={classes.link}>Contact Me</.link>
-  </:item>
-  <:item is_full_width />
-</PL.header>
+<div class="container mx-auto">
+  <div class="navbar bg-base-100">
+    <div class="flex-1">
+      <.link navigate="/" class="btn btn-ghost text-xl">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="mr-2"
+        >
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        Tech Rationalist
+      </.link>
+    </div>
+    <div class="flex-none">
+      <ul class="menu menu-horizontal px-1">
+        <li><.link navigate="/" class="btn btn-ghost">Home</.link></li>
+        <li><.link href="/projects" class="btn btn-ghost">Projects</.link></li>
+        <li><.link href="/skills" class="btn btn-ghost">Skills</.link></li>
+        <li><.link href="/about-me" class="btn btn-ghost">About Me</.link></li>
+        <li><.link patch="/contact" class="btn btn-ghost">Contact Me</.link></li>
+      </ul>
+    </div>
+  </div>
+</div>
 <main class="px-4 py-20 sm:px-6 lg:px-8">
   <div class="mx-auto max-w-2xl">
     <.flash_group flash={@flash} />

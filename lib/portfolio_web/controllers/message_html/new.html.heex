@@ -1,42 +1,86 @@
-<div class="max-w-2xl mx-auto">
-  <.header class="text-center">
-    Get in Touch
-    <:subtitle>
-      Whether you have a question about my projects, want to collaborate on a new venture, or just want to say hi, I'd love to hear from you! Use the form below or reach out through my social media channels.
-    </:subtitle>
-  </.header>
-
-  <.simple_form :let={f} for={@changeset} action={~p"/contact"} class="mt-10">
-    <.error :if={@changeset.action}>
-      Oops, something went wrong! Please check the errors below.
-    </.error>
-    <.input field={f[:name]} type="text" label="Name" required />
-    <.input field={f[:email]} type="email" label="Email" required />
-    <.input field={f[:subject]} type="text" label="Subject" required />
-    <.input field={f[:body]} type="textarea" label="Message" required />
-    <:actions>
-      <.button class="w-full">Send Message</.button>
-    </:actions>
-  </.simple_form>
-
-  <div class="mt-12 text-center">
-    <h3 class="text-lg font-semibold mb-4">Connect With Me</h3>
-    <div class="flex justify-center space-x-4">
-      <a href="https://linkedin.com/in/murali-krishna-regandla" class="text-blue-600 hover:underline flex items-center">
-        <i class="fa-brands fa-linkedin fa-lg mr-2"></i>LinkedIn
-      </a>
-      <a href="https://github.com/techrationalist" class="text-blue-600 hover:underline flex items-center">
-        <i class="fa-brands fa-github fa-lg mr-2"></i>GitHub
-      </a>
-      <a href="https://x.com/TechRationalist" class="text-blue-600 hover:underline flex items-center">
-        <i class="fa-brands fa-x-twitter fa-lg mr-2"></i>Twitter
-      </a>
+<div class="hero">
+  <div class="hero-content flex-col">
+    <div class="text-center mb-8">
+      <h1 class="text-5xl font-bold">Get in Touch</h1>
+      <p class="py-6 text-base-content/70">
+        Whether you have a question about my projects, want to collaborate on a new venture, or just want to say hi, I'd love to hear from you!
+      </p>
+    </div>
+    <div class="card w-full max-w-md shadow-2xl">
+      <.form :let={f} for={@changeset} action={~p"/contact"} class="card-body">
+        <.error :if={@changeset.action}>
+          Oops, something went wrong! Please check the errors below.
+        </.error>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Name</span>
+          </label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+              <i class="fas fa-user text-neutral-content/70"></i>
+            </span>
+            <input type="text" name={f[:name].name} placeholder="Your name" class="input input-bordered bg-neutral text-neutral-content pl-10 w-full" required />
+          </div>
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Email</span>
+          </label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+              <i class="fas fa-envelope text-neutral-content/70"></i>
+            </span>
+            <input type="email" name={f[:email].name} placeholder="Your email" class="input input-bordered bg-neutral text-neutral-content pl-10 w-full" required />
+          </div>
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Subject</span>
+          </label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+              <i class="fas fa-tag text-neutral-content/70"></i>
+            </span>
+            <input type="text" name={f[:subject].name} placeholder="Message subject" class="input input-bordered bg-neutral text-neutral-content pl-10 w-full" required />
+          </div>
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Message</span>
+          </label>
+          <div class="relative">
+            <span class="absolute top-3 left-3">
+              <i class="fas fa-comment text-neutral-content/70"></i>
+            </span>
+            <textarea name={f[:body].name} placeholder="Your message" class="textarea textarea-bordered bg-neutral text-neutral-content pl-10 w-full h-24" required></textarea>
+          </div>
+        </div>
+        <div class="form-control mt-6">
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </div>
+      </.form>
     </div>
   </div>
-  <div class="mt-8 text-center text-sm text-gray-600">
-    <p>Or email me directly at 
-      <.obfuscate_email_link user="contact" domain="techrationlist.com" />
-    </p>
-    <p class="mt-2">Office hours: Monday to Friday, 10 AM to 6 PM (IST)</p>
+</div>
+<div class="mt-12 text-center">
+  <h3 class="text-lg font-semibold mb-4">Connect With Me</h3>
+  <div class="flex justify-center space-x-4">
+    <a href="https://linkedin.com/in/murali-krishna-regandla" class="btn btn-ghost btn-sm">
+      <i class="fa-brands fa-linkedin fa-lg mr-2"></i>LinkedIn
+    </a>
+    <a href="https://github.com/techrationalist" class="btn btn-ghost btn-sm">
+      <i class="fa-brands fa-github fa-lg mr-2"></i>GitHub
+    </a>
+    <a href="https://x.com/TechRationalist" class="btn btn-ghost btn-sm">
+      <i class="fa-brands fa-x-twitter fa-lg mr-2"></i>Twitter
+    </a>
   </div>
 </div>
+
+<div class="mt-8 text-center text-sm text-gray-600">
+  <p>
+    Or email me directly at <.obfuscate_email_link user="contact" domain="techrationlist.com" />
+  </p>
+  <p class="mt-2">Office hours: Monday to Friday, 10 AM to 6 PM (IST)</p>
+</div>
+

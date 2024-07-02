@@ -20,8 +20,4 @@ defmodule PortfolioWeb.MessageController do
         render(conn, :new, changeset: changeset)
     end
   end
-
-  def thank_you(conn, _params) do
-    render(conn, :thank_you)
-  end
 end

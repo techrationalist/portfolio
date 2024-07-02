@@ -1,23 +1,30 @@
-<section>
-  <PL.layout is_divided>
-    <:main>
-      <img src={~p"/images/profile.jpeg"} alt="Profile Picture" class="responsive-image" />
-    </:main>
-    <:divider></:divider>
-    <:sidebar>
-      <p>
+<div class="hero">
+  <div class="hero-content flex-col lg:flex-row">
+    <div class="avatar">
+      <div class="w-64 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+        <img src={~p"/images/profile.jpeg"} alt="Profile Picture" />
+      </div>
+    </div>
+    <div class="divider divider-horizontal"></div>
+    
+    <div>
+      <h1 class="text-5xl font-bold">About Me</h1>
+      <p class="py-6">
         I have over 20 years of experience in software development, with a strong focus on architecture design, cloud computing, and DevOps.
       </p>
-      <p>
-        Visit my <a href="https://linkedin.com/in/murali-krishna-regandla">LinkedIn</a>
+      <p class="py-2">
+        Visit my
+        <a href="https://linkedin.com/in/murali-krishna-regandla" class="link link-primary">
+          LinkedIn
+        </a>
         profile to see my career history.
       </p>
-      <p>
+      <p class="py-2">
         In my free time, I enjoy exploring the latest trends in technology.
       </p>
-      <p>
+      <p class="py-2">
         Tech Rationalist is my platform to share insights and innovations in the tech world.
       </p>
-    </:sidebar>
-  </PL.layout>
-</section>
+    </div>
+  </div>
+</div>

@@ -23,7 +23,7 @@ defmodule PortfolioWeb.Router do
 
     get "/contact", MessageController, :new
     post "/contact", MessageController, :create
-    get "/contact/thank-you", MessageController, :thank_you
+    live "/contact/thank-you", ThankYouLive, :show
 
     get "/projects", ProjectsController, :projects
   end
