@@ -1,0 +1,115 @@
+/* Markdown styles for dark theme */
+.prose pre {
+    padding: 1em;
+    background-color: #2d2d2d;
+    border-radius: 0.3em;
+    overflow-x: auto;
+}
+
+.prose code {
+    font-family: 'Courier New', Courier, monospace;
+    color: #e6e6e6;
+}
+
+/* Language-specific styles */
+.prose .language-elixir {
+    color: #a5d8ff;
+}
+
+.prose .language-javascript {
+    color: #ffd700;
+}
+
+/* Additional styles for better readability in dark mode */
+.prose {
+    color: #e6e6e6;
+}
+
+.prose a {
+    color: #61dafb;
+}
+
+.prose strong {
+    color: #e6e6e6;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+    color: #e6e6e6;
+}
+
+.prose blockquote {
+    border-left-color: #4a4a4a;
+    color: #b3b3b3;
+}
+
+.prose hr {
+    border-color: #4a4a4a;
+}
+
+.prose table {
+    border-color: #4a4a4a;
+}
+
+.prose th {
+    background-color: #3a3a3a;
+    color: #e6e6e6;
+}
+
+.prose td {
+    border-color: #4a4a4a;
+}
+
+/* Header styles */
+/* Header styles */
+.prose h1 {
+    font-size: 2.25rem;
+        /* 36px if base is 16px */
+    margin-top: 0;
+    margin-bottom: 0.8888889em;
+    line-height: 1.1111111;
+}
+
+.prose h2 {
+    font-size: 1.875rem;
+        /* 30px if base is 16px */
+    margin-top: 2em;
+    margin-bottom: 1em;
+    line-height: 1.3333333;
+}
+
+.prose h3 {
+    font-size: 1.5rem;
+        /* 24px if base is 16px */
+    margin-top: 1.6em;
+    margin-bottom: 0.6em;
+    line-height: 1.6;
+}
+
+.prose h4 {
+    font-size: 1.25rem;
+    /* 20px if base is 16px */
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    line-height: 1.5;
+}
+
+.prose h5 {
+    font-size: 1.125rem;
+    /* 18px if base is 16px */
+    margin-top: 1.4em;
+    margin-bottom: 0.4em;
+    line-height: 1.4;
+}
+
+.prose h6 {
+    font-size: 1rem;
+    /* 16px if base is 16px */
+    margin-top: 1.3em;
+    margin-bottom: 0.3em;
+    line-height: 1.3;
+}

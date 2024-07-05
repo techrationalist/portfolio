@@ -58,4 +58,37 @@ defmodule PortfolioWeb.Helpers do
     </span>
     """
   end
+
+
+  @doc """
+  Truncates a given text to a specified length.
+
+  This function is used to shorten long text strings, typically for display purposes
+  where space is limited (e.g., in summaries or previews).
+
+  ## Parameters
+  - text: The string to be truncated.
+  - length: The maximum length of the resulting string, including the ellipsis.
+
+  ## Returns
+  A string that is no longer than the specified length. If the original text
+  is longer than the specified length, it will be cut off and an ellipsis ("...")
+  will be appended.
+
+  ## Examples
+
+      iex> truncate("Hello, world!", 10)
+      "Hello, wo..."
+
+      iex> truncate("Short", 10)
+      "Short"
+
+  """
+  def truncate(text, length) do
+    if String.length(text) > length do
+      String.slice(text, 0, length) <> "..."
+    else
+      text
+    end
+  end
 end

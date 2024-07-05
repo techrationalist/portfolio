@@ -26,3 +26,15 @@ This project is configured for deployment on Fly.io. To deploy:
 3. Deploy your application with `fly deploy`
 
 Note: The `fly.toml` file is gitignored as it contains deployment-specific details.
+
+### Custom Domain Configuration
+
+When deploying with a custom domain, ensure that the `PHX_HOST` environment variable is set correctly in your `fly.toml` file:
+
+```toml
+[env]
+        PHX_HOST = "your-custom-domain.com"
+        PORT = "8080"
+```
+
+This setting is crucial for proper functioning of LiveView and WebSocket connections on your custom domain.

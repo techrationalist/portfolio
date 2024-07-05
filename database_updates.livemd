@@ -1,0 +1,31 @@
+# Database Updates
+
+## Section
+
+```elixir
+alias Portfolio.Projects
+```
+
+```elixir
+Projects.list_projects()
+```
+
+```elixir
+projects =
+  Projects.list_projects()
+  |> Enum.map(fn project ->
+    project
+    |> Map.drop([:__meta__])
+    |> Map.from_struct()
+    |> Jason.encode!(pretty: true)
+  end)
+  |> IO.puts()
+```
+
+```elixir
+Projects.seed_sample_projects()
+```
+
+```elixir
+Projects.list_projects() |> Enum.map(fn project -> Projects.delete_project(project) end)
+```

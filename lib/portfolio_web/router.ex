@@ -25,7 +25,8 @@ defmodule PortfolioWeb.Router do
     post "/contact", MessageController, :create
     live "/contact/thank-you", ThankYouLive, :show
 
-    get "/projects", ProjectsController, :projects
+    live "/projects", ProjectLive.Index, :index
+    live "/projects/:id", ProjectLive.Show, :show
   end
 
   # Other scopes may use custom stacks.

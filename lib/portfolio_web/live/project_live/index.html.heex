@@ -1,0 +1,54 @@
+<div>
+  <h1 class="text-4xl font-bold mb-12 text-center">My Projects</h1>
+  <%= if Enum.count(@streams.projects) == 0 do %>
+    <div class="text-center text-gray-400">
+      <p class="text-xl mb-4">No projects available at the moment.</p>
+      <p>Check back later for updates!</p>
+    </div>
+  <% else %>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <%= for {id, project} <- @streams.projects do %>
+        <div
+          id={id}
+          class="card bg-gray-800 shadow-xl hover:shadow-2xl transition-shadow duration-300 hover:bg-gray-900 cursor-pointer"
+          phx-click={JS.patch(~p"/projects/#{project}")}
+        >
+          <div class="card-body flex-grow flex flex-col">
+            <h2 class="card-title text-xl font-bold mb-3">
+              <%= project.title %>
+            </h2>
+            <%= if project.technologies && length(project.technologies) > 0 do %>
+              <div class="flex flex-wrap gap-1 mb-4">
+                <%= for tech <- project.technologies do %>
+                  <span class="badge text-xs px-2 py-1 mb-1 opacity-70 whitespace-nowrap">
+                    <%= tech %>
+                  </span>
+                <% end %>
+              </div>
+            <% end %>
+            <div class="card-actions justify-between mt-auto">
+              <%= if project.github_url && project.github_url != "" do %>
+                <.link
+                  href={project.github_url}
+                  target="_blank"
+                  class="btn btn-sm btn-outline btn-primary hover:bg-primary hover:text-white"
+                >
+                  <i class="fab fa-github"></i> GitHub
+                </.link>
+              <% end %>
+              <%= if project.live_url && project.live_url != "" do %>
+                <.link
+                  href={project.live_url}
+                  target="_blank"
+                  class="btn btn-sm btn-primary hover:text-white"
+                >
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </.link>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
