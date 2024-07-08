@@ -53,6 +53,7 @@ defmodule Portfolio.Projects do
     %Project{}
     |> Project.changeset(attrs)
     |> Repo.insert()
+    |> broadcast(:project_created)
   end
 
   @doc """
@@ -71,6 +72,7 @@ defmodule Portfolio.Projects do
     project
     |> Project.changeset(attrs)
     |> Repo.update()
+    |> broadcast(:project_updated)
   end
 
   @doc """
@@ -86,7 +88,9 @@ defmodule Portfolio.Projects do
 
   """
   def delete_project(%Project{} = project) do
-    Repo.delete(project)
+    project
+    |> Repo.delete()
+    |> broadcast(:project_deleted)
   end
 
   @doc """
@@ -203,8 +207,15 @@ defmodule Portfolio.Projects do
       }
     ]
 
-    Enum.each(projects, fn project ->
-      Portfolio.Projects.create_project(project)
+    projects
+    |> Enum.map(fn project ->
+      {:ok, created_project} = Portfolio.Projects.create_project(project)
+      created_project
     end)
+  end
+
+  defp broadcast({:ok, project}, event) do
+    Phoenix.PubSub.broadcast(Portfolio.PubSub, "projects", {event, project})
+    {:ok, project}
   end
 end

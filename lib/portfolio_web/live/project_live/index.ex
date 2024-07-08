@@ -6,6 +6,9 @@ defmodule PortfolioWeb.ProjectLive.Index do
 
   @impl true
   def mount(_params, _session, socket) do
+    if connected?(socket) do
+      Phoenix.PubSub.subscribe(Portfolio.PubSub, "projects")
+    end
     {:ok, stream(socket, :projects, Projects.list_projects())}
   end
 
@@ -33,15 +36,22 @@ defmodule PortfolioWeb.ProjectLive.Index do
   end
 
   @impl true
-  def handle_info({PortfolioWeb.ProjectLive.FormComponent, {:saved, project}}, socket) do
+  def handle_info({:project_created, project}, socket) do
     {:noreply, stream_insert(socket, :projects, project)}
   end
 
   @impl true
-  def handle_event("delete", %{"id" => id}, socket) do
-    project = Projects.get_project!(id)
-    {:ok, _} = Projects.delete_project(project)
-
-    {:noreply, stream_delete(socket, :projects, project)}
+  def handle_info({:project_updated, project}, socket) do
+    {:noreply, stream_insert(socket, :projects, project)}
   end
+
+  @impl true
+  def handle_info({:project_deleted, _project}, socket) do
+    # TODO: I was trying to use stream_delete but it was not working.
+    # {:noreply, stream_delete(socket, :projects, project)}
+    # So I am just refreshing the page to get the latest data.
+    # Please let me know if there is a better way to do this.
+    {:noreply, push_navigate(socket, to: ~p"/projects")}
+  end
+
 end
