@@ -46,15 +46,34 @@ defmodule PortfolioWeb.Helpers do
     |> raw()
   end
 
-  attr :user, :string, required: true
-  attr :domain, :string, required: true
+  @contact_email "contact@techrationalist.com"
+
+  attr :user, :string, default: nil
+  attr :domain, :string, default: nil
+  attr :class, :string, default: ""
+  slot :inner_block
 
   def obfuscate_email_link(assigns) do
+    assigns =
+      if is_nil(assigns[:user]) or is_nil(assigns[:domain]) do
+        [user, domain] = String.split(@contact_email, "@")
+        assign(assigns, user: user, domain: domain)
+      else
+        assigns
+      end
+
+    classes = ["cursor-pointer"] ++ String.split(assigns.class, " ")
+    assigns = assign(assigns, :classes, classes)
+
     ~H"""
-    <span id="obfuscated-email" class="text-blue-600 hover:underline cursor-pointer"
+    <span id="obfuscated-email" class={@classes}
     phx-click={JS.dispatch("custom:open-email", detail: %{user: @user, domain: @domain})}
     >
-      <%= obfuscate_email("#{@user}@#{@domain}") %>
+      <%= if render_slot(@inner_block) do %>
+        <%= render_slot(@inner_block) %>
+      <% else %>
+        <%= obfuscate_email("#{@user}@#{@domain}") %>
+      <% end %>
     </span>
     """
   end

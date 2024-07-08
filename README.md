@@ -2,6 +2,7 @@
 
 To start your Phoenix server:
 
+* Install Node.js dependencies with `npm install` in the `assets` directory. This is required to build Tailwind CSS and any UI libraries.
 * Run `mix setup` to install and setup dependencies
 * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
 
