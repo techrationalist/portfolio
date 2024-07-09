@@ -20,6 +20,8 @@ if System.get_env("PHX_SERVER") do
   config :portfolio, PortfolioWeb.Endpoint, server: true
 end
 
+config :live_admin, ecto_repo: Portfolio.Repo
+
 if config_env() == :prod do
   # The secret key base is used to sign/encrypt cookies and other secrets.
   # A default value is used in config/dev.exs and config/test.exs but you
@@ -35,10 +37,10 @@ if config_env() == :prod do
 
   database_url =
     System.get_env("DATABASE_URL") ||
-    raise """
-        environment variable DATABASE_URL is missing.
-        For example: ecto://USER:PASS@HOST/DATABASE
-        """
+      raise """
+      environment variable DATABASE_URL is missing.
+      For example: ecto://USER:PASS@HOST/DATABASE
+      """
 
   config :portfolio, Portfolio.Repo,
     ssl: false,

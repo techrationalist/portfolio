@@ -32,6 +32,8 @@ defmodule Portfolio.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:live_admin, "~> 0.12.0"},
+      {:bcrypt_elixir, "~> 3.0"},
       {:phoenix, "~> 1.7.14"},
       {:phoenix_html, "~> 4.1"},
       {:phoenix_live_reload, "~> 1.5", only: :dev},

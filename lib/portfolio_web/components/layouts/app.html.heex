@@ -27,6 +27,22 @@
         <%!-- <li><.link navigate={~p"/skills"} class="btn btn-ghost">Skills</.link></li> --%>
         <li><.link navigate={~p"/about-me"} class="btn btn-ghost">About Me</.link></li>
         <li><.link navigate={~p"/contact"} class="btn btn-ghost">Contact Me</.link></li>
+        <%= if @current_admin do %>
+          <li>
+            <details class="dropdown dropdown-end">
+              <summary class="btn btn-ghost">
+                <%= @current_admin.email %>
+              </summary>
+              <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+                <li>
+                  <.link href={~p"/admins/log_out"} method="delete">
+                    Log out
+                  </.link>
+                </li>
+              </ul>
+            </details>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
