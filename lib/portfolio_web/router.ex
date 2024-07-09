@@ -31,10 +31,13 @@ defmodule PortfolioWeb.Router do
 
     get "/contact", MessageController, :new
     post "/contact", MessageController, :create
-    live "/contact/thank-you", ThankYouLive, :show
 
-    live "/projects", ProjectLive.Index, :index
-    live "/projects/:id", ProjectLive.Show, :show
+    live_session :mount_current_admin,
+      on_mount: [{PortfolioWeb.AdminAuth, :mount_current_admin}] do
+      live "/contact/thank-you", ThankYouLive, :show
+      live "/projects", ProjectLive.Index, :index
+      live "/projects/:id", ProjectLive.Show, :show
+    end
   end
 
   # Other scopes may use custom stacks.
